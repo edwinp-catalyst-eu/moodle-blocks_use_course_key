@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<XMLDB PATH="blocks/use_course_key/db" VERSION="20090515" COMMENT="XMLDB file for Moodle search engine"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="../../../lib/xmldb/xmldb.xsd">
+   <TABLES>
+   	
+    <TABLE NAME="course_key_sets" COMMENT="table to store course key sets" NEXT="schools">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="true" NEXT="courseid" />
+        <FIELD NAME="courseid" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" DEFAULT="0" SEQUENCE="false" PREVIOUS="id" NEXT="groupid" />
+        <FIELD NAME="groupid" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" DEFAULT="0" SEQUENCE="false" PREVIOUS="courseid" NEXT="created_by_id" />
+        <FIELD NAME="created_by_id" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="false" PREVIOUS="groupid" />
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id" />
+      </KEYS>
+    </TABLE>
+
+    
+   	
+     <TABLE NAME="schools" COMMENT="table to store schools and pools" PREVIOUS="course_key_sets" NEXT="course_key_config">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="true" NEXT="name" />
+        <FIELD NAME="name" TYPE="char" LENGTH="255" NOTNULL="false" SEQUENCE="false" PREVIOUS="id" NEXT="code" />
+        <FIELD NAME="code" TYPE="char" LENGTH="255" NOTNULL="false" SEQUENCE="false" PREVIOUS="name" NEXT="keys_left" />
+        <FIELD NAME="keys_left" TYPE="int" LENGTH="10" NOTNULL="false" UNSIGNED="true" SEQUENCE="false" PREVIOUS="code" NEXT="fixed_expire_date" />
+        <FIELD NAME="fixed_expire_date" TYPE="datetime" NOTNULL="false" SEQUENCE="false" NEXT="dynamic_expire_date" PREVIOUS="keys_left" />
+        <FIELD NAME="dynamic_expire_date" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="false" PREVIOUS="fixed_expire_date" />
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id" />
+      </KEYS>    
+    </TABLE>
+    
+    <TABLE NAME="course_key_config" COMMENT="table to store configs" PREVIOUS="schools">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="true" NEXT="vr" />
+        <FIELD NAME="vr" TYPE="char" LENGTH="255" NOTNULL="false" SEQUENCE="false" PREVIOUS="id" NEXT="vl" />
+        <FIELD NAME="vl" TYPE="char" LENGTH="255" NOTNULL="false" SEQUENCE="false" PREVIOUS="vr" />
+			</FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id" />
+      </KEYS>    
+    </TABLE>
+    
+  </TABLES>
+</XMLDB>
