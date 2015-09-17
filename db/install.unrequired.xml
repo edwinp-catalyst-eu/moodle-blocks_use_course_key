@@ -3,7 +3,11 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:noNamespaceSchemaLocation="../../../lib/xmldb/xmldb.xsd">
    <TABLES>
-   	
+       <!--
+       
+       Not required in Tur Forlag upgrade code as already
+       defined in mod/coursecodegen/db/install
+       
     <TABLE NAME="course_key_sets" COMMENT="table to store course key sets" NEXT="schools">
       <FIELDS>
         <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" UNSIGNED="true" SEQUENCE="true" NEXT="courseid" />
@@ -42,6 +46,7 @@
         <KEY NAME="primary" TYPE="primary" FIELDS="id" />
       </KEYS>    
     </TABLE>
+    -->
     
   </TABLES>
 </XMLDB>

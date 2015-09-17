@@ -70,4 +70,8 @@ $string['expired'] ='Expired';
 $string['show_all_in_school'] = 'Show all coursekeys for this school';
 $string['usecoursecodeagreement'] = 'Tryk OK for at fortsætte og godkende disse betingelser:\n -En kursuskode kan du kun benyttes een gang.\n -Du må ikke forsøge at omgå eller . \n -Du må ikke forsøge at omgå eller . \n -Du må ikke forsøge at omgå eller . \n -Du må ikke forsøge at omgå eller ...';
 $string['use_course_key:usecoursekeyblock'] = 'Access the use coursekey block';
+
+
+// Additional
+$string['pluginname'] = 'Use course key';
 ?>
